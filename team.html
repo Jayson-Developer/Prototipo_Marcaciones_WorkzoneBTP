@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcaciones del Equipo | SAP Build Work Zone</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Cabecera de navegación simulada del Work Zone -->
+    <header style="background: #da291c; color: white; padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; border-radius: 8px; margin-bottom: 24px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <span style="font-weight: bold; font-size: 1.1rem;">Claro Perú | Portal Interno (Jefatura)</span>
+        </div>
+        <div>
+            <a href="index.html" style="color: white; text-decoration: none; background: rgba(255,255,255,0.2); padding: 6px 14px; border-radius: 4px; font-size: 0.9rem;">
+                <i class="fa-solid fa-arrow-left"></i> Volver a Mis Marcaciones
+            </a>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <h2 class="section-title">Control de Asistencia del Equipo</h2>
+
+        <!-- Tarjetas Resumen de Equipo -->
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 24px;">
+            <div class="card" style="margin-bottom: 0; text-align: center;">
+                <div style="font-size: 1.8rem; font-weight: bold; color: #da291c;">4</div>
+                <div style="color: #666; font-size: 0.9rem;">Colaboradores a Cargo</div>
+            </div>
+            <div class="card" style="margin-bottom: 0; text-align: center;">
+                <div style="font-size: 1.8rem; font-weight: bold; color: #2e7d32;">3</div>
+                <div style="color: #666; font-size: 0.9rem;">Asistieron a Tiempo Hoy</div>
+            </div>
+            <div class="card" style="margin-bottom: 0; text-align: center;">
+                <div style="font-size: 1.8rem; font-weight: bold; color: #f57c00;">1</div>
+                <div style="color: #666; font-size: 0.9rem;">Con Tardanza / Incidencia</div>
+            </div>
+        </div>
+
+        <!-- Tabla de Colaboradores del Equipo -->
+        <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h3 style="margin: 0; font-size: 1.1rem;">Listado de Marcaciones de Hoy</h3>
+                <span style="font-size: 0.85rem; color: #666;"><i class="fa-solid fa-calendar"></i> Fecha: 10/Jul/2025</span>
+            </div>
+
+            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;">
+                <thead>
+                    <tr style="color: #666; border-bottom: 1px solid #e5e9ec;">
+                        <th style="padding-bottom: 10px;">Colaborador</th>
+                        <th style="padding-bottom: 10px;">Puesto</th>
+                        <th style="padding-bottom: 10px;">Entrada</th>
+                        <th style="padding-bottom: 10px;">Salida</th>
+                        <th style="padding-bottom: 10px;">Estado de Hoy</th>
+                        <th style="padding-bottom: 10px; text-align: center;">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #f4f6f9;">
+                        <td style="padding: 12px 0; font-weight: 600;">Carlos Pérez García</td>
+                        <td>Analista de Operaciones</td>
+                        <td>08:31</td>
+                        <td>17:15</td>
+                        <td><span style="background: #e1f5fe; color: #0288d1; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;"><i class="fa-solid fa-circle-check"></i> A tiempo</span></td>
+                        <td style="text-align: center;"><a href="index.html" style="color: #da291c; text-decoration: none; font-size: 0.85rem; font-weight: 600;">Ver Detalle</a></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f4f6f9;">
+                        <td style="padding: 12px 0; font-weight: 600;">María López Torres</td>
+                        <td>Especialista de Ventas</td>
+                        <td>08:52</td>
+                        <td>--:--</td>
+                        <td><span style="background: #fff3e0; color: #f57c00; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;"><i class="fa-solid fa-clock"></i> Tardanza</span></td>
+                        <td style="text-align: center;"><a href="#" style="color: #da291c; text-decoration: none; font-size: 0.85rem; font-weight: 600;">Ver Detalle</a></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f4f6f9;">
+                        <td style="padding: 12px 0; font-weight: 600;">Jorge Ramirez Silva</td>
+                        <td>Soporte Técnico Senior</td>
+                        <td>08:15</td>
+                        <td>--:--</td>
+                        <td><span style="background: #e8f5e9; color: #2e7d32; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;"><i class="fa-solid fa-check"></i> A tiempo</span></td>
+                        <td style="text-align: center;"><a href="#" style="color: #da291c; text-decoration: none; font-size: 0.85rem; font-weight: 600;">Ver Detalle</a></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f4f6f9;">
+                        <td style="padding: 12px 0; font-weight: 600;">Ana Mendoza Ruiz</td>
+                        <td>Administrativa GH</td>
+                        <td>08:20</td>
+                        <td>--:--</td>
+                        <td><span style="background: #e8f5e9; color: #2e7d32; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;"><i class="fa-solid fa-check"></i> A tiempo</span></td>
+                        <td style="text-align: center;"><a href="#" style="color: #da291c; text-decoration: none; font-size: 0.85rem; font-weight: 600;">Ver Detalle</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

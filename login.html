@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Vacaciones - Iniciar Sesión</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f4f6f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-box {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            width: 400px;
+            border: 1px solid #e5e9ec;
+            text-align: center;
+        }
+        .form-select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 0.95rem;
+            margin-top: 8px;
+            margin-bottom: 20px;
+            background: #fff;
+            outline: none;
+        }
+        .btn-ingresar {
+            background-color: #da291c;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-ingresar:hover {
+            background-color: #b52217;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-box">
+        <div style="margin-bottom: 20px;">
+            <div style="width: 70px; height: 70px; background: #da291c; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px auto; color: white; font-weight: bold; font-size: 1.3rem;">
+                Claro
+            </div>
+            <h2 style="margin: 0; font-size: 1.3rem; color: #002D62;">Portal de Marcaciones</h2>
+            <p style="margin: 5px 0 0 0; font-size: 0.8rem; color: #666;">Selecciona tu perfil para acceder al prototipo.</p>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid #e5e9ec; margin-bottom: 20px;">
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <label style="font-size: 0.85rem; font-weight: 600; color: #32363a;">Usuario demo</label>
+            <select id="selector-rol" class="form-select" onchange="actualizarPreview()">
+                <option value="usuario">Fabricio Montesinos — Colaborador Standard</option>
+                <option value="jefe">Omar Zamudio — Jefe Aprobador</option>
+            </select>
+        </div>
+
+        <div id="preview-card" style="background: #f9fbfd; border: 1px solid #e5e9ec; border-radius: 8px; padding: 12px; text-align: left; margin-bottom: 20px; display: flex; align-items: center; gap: 12px;">
+            <div id="preview-iniciales" style="width: 40px; height: 40px; background: #da291c; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.9rem;">AG</div>
+            <div>
+                <div id="preview-nombre" style="font-weight: 600; font-size: 0.9rem; color: #32363a;">Fabricio Montesnos</div>
+                <div id="preview-puesto" style="font-size: 0.75rem; color: #666;">SAP Proyectos</div>
+                <span id="preview-badge" style="display: inline-block; background: #ffebee; color: #c62828; font-size: 0.6rem; font-weight: bold; padding: 2px 6px; border-radius: 4px; margin-top: 4px;">COLABORADOR STANDARD</span>
+            </div>
+        </div>
+
+        <button class="btn-ingresar" onclick="iniciarSesion()">Ingresar al portal →</button>
+        <p style="font-size: 0.75rem; color: #888; margin-top: 15px;">Demo · SAP Build Work Zone</p>
+    </div>
+
+    <script>
+        function actualizarPreview() {
+            const rol = document.getElementById('selector-rol').value;
+            const iniciales = document.getElementById('preview-iniciales');
+            const nombre = document.getElementById('preview-nombre');
+            const puesto = document.getElementById('preview-puesto');
+            const badge = document.getElementById('preview-badge');
+
+            if (rol === 'jefe') {
+                iniciales.innerText = "ML";
+                iniciales.style.background = "#002D62";
+                nombre.innerText = "Omar Zamudio";
+                puesto.innerText = "Jefe de Proyectos";
+                badge.innerText = "JEFE APROBADOR";
+                badge.style.background = "#e3f2fd";
+                badge.style.color = "#1565c0";
+            } else {
+                iniciales.innerText = "AG";
+                iniciales.style.background = "#da291c";
+                nombre.innerText = "Fabricio Montesinos";
+                puesto.innerText = "Practicante SAP";
+                badge.innerText = "COLABORADOR STANDARD";
+                badge.style.background = "#ffebee";
+                badge.style.color = "#c62828";
+            }
+        }
+
+        function iniciarSesion() {
+            const rolSeleccionado = document.getElementById('selector-rol').value;
+            localStorage.setItem('rolUsuario', rolSeleccionado);
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

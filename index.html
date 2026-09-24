@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcaciones de Asistencia | SAP Build Work Zone</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Cabecera de navegación con control de roles -->
+    <header style="background: #da291c; color: white; padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; border-radius: 8px; margin-bottom: 24px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <span style="font-weight: bold; font-size: 1.1rem;">Claro Perú | Portal Interno</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <!-- Este botón solo aparece si el rol es 'jefe' -->
+            <a id="btn-menu-jefe" href="team.html" style="display: none; color: white; text-decoration: none; background: rgba(255,255,255,0.25); padding: 6px 14px; border-radius: 4px; font-size: 0.9rem; font-weight: 600;">
+                <i class="fa-solid fa-users"></i> Ver Equipo (Jefe)
+            </a>
+            <a href="login.html" style="color: white; text-decoration: none; background: rgba(0,0,0,0.2); padding: 6px 14px; border-radius: 4px; font-size: 0.9rem; font-weight: 600;">
+                <i class="fa-solid fa-right-from-bracket"></i> Cambiar Usuario
+            </a>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <h2 class="section-title">Marcaciones</h2>
+
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px;">
+            
+            <!-- Columna Izquierda: Perfil y Tabla de Registros -->
+            <div>
+                <!-- Tarjeta de Perfil Dinámica -->
+                <div class="card" style="display: flex; align-items: center; justify-content: space-between;">
+                    <div style="display: flex; align-items: center; gap: 16px;">
+                        <div id="avatar-perfil" style="width: 60px; height: 60px; background: #da291c; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: bold; color: white;">
+                            AG
+                        </div>
+                        <div>
+                            <h3 id="nombre-usuario" style="margin: 0; font-size: 1.1rem; color: #32363a;">Fabricio Montesinos</h3>
+                            <p id="puesto-usuario" style="margin: 4px 0 0 0; color: #666; font-size: 0.9rem;">Practicante SAP</p>
+                            <p style="margin: 2px 0 0 0; color: #888; font-size: 0.85rem;">Empleado: <span id="id-empleado">C12317</span></p>
+                        </div>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-calendar-days" style="font-size: 1.8rem; color: #da291c;"></i>
+                    </div>
+                </div>
+
+                <!-- Pestañas y Tabla -->
+                <div class="card">
+                    <div style="display: flex; gap: 24px; border-bottom: 2px solid #e5e9ec; margin-bottom: 20px; padding-bottom: 10px;">
+                        <span id="tab-actual" onclick="cambiarPestana('actual')" style="font-weight: 600; color: #da291c; cursor: pointer; border-bottom: 2px solid #da291c; padding-bottom: 10px; margin-bottom: -12px;">Mes Actual</span>
+                        <span id="tab-anterior" onclick="cambiarPestana('anterior')" style="color: #666; cursor: pointer; padding-bottom: 10px; margin-bottom: -12px;">Mes Anterior</span>
+                    </div>
+
+                    <!-- Tabla Mes Actual -->
+                    <table id="tabla-actual" style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;">
+                        <thead>
+                            <tr style="color: #666; border-bottom: 1px solid #e5e9ec;">
+                                <th style="padding-bottom: 10px;">Fecha</th>
+                                <th style="padding-bottom: 10px;">Entrada</th>
+                                <th style="padding-bottom: 10px;">Salida</th>
+                                <th style="padding-bottom: 10px;">Horas Trabajadas</th>
+                                <th style="padding-bottom: 10px;">Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #f4f6f9;"><td style="padding: 12px 0;">10/Jul/2025 Jue</td><td>08:30</td><td>17:05</td><td>8h 35m</td><td><span style="background: #e1f5fe; color: #0288d1; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;"><i class="fa-solid fa-circle-check"></i> A tiempo</span></td></tr>
+                            <tr style="border-bottom: 1px solid #f4f6f9;"><td style="padding: 12px 0;">09/Jul/2025 Mié</td><td>08:32</td><td>17:00</td><td>8h 28m</td><td><span style="background: #e1f5fe; color: #0288d1; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;"><i class="fa-solid fa-circle-check"></i> A tiempo</span></td></tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Tabla Mes Anterior -->
+                    <table id="tabla-anterior" style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; display: none;">
+                        <thead>
+                            <tr style="color: #666; border-bottom: 1px solid #e5e9ec;">
+                                <th style="padding-bottom: 10px;">Fecha</th>
+                                <th style="padding-bottom: 10px;">Entrada</th>
+                                <th style="padding-bottom: 10px;">Salida</th>
+                                <th style="padding-bottom: 10px;">Horas Trabajadas</th>
+                                <th style="padding-bottom: 10px;">Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #f4f6f9;"><td style="padding: 12px 0;">30/Jun/2025 Lun</td><td>08:28</td><td>17:02</td><td>8h 34m</td><td><span style="background: #e1f5fe; color: #0288d1; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;"><i class="fa-solid fa-circle-check"></i> A tiempo</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Columna Derecha: Resumen del Mes -->
+            <div>
+                <div class="card">
+                    <h3 style="margin-top: 0; font-size: 1.1rem; border-bottom: 1px solid #e5e9ec; padding-bottom: 10px;">Resumen del Mes</h3>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <div style="font-size: 1.8rem; font-weight: bold; color: #2e7d32;">98%</div>
+                        <div style="font-size: 0.85rem; color: #666;">Asistencia Mensual</div>
+                    </div>
+                    <hr style="border: 0; border-top: 1px solid #e5e9ec; margin: 20px 0;">
+                    <div style="text-align: center; margin: 20px 0;">
+                        <div style="font-size: 1.5rem; font-weight: bold; color: #32363a;">168h 10m</div>
+                        <div style="font-size: 0.85rem; color: #666;">Horas Acumuladas</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Lógica de validación de roles al cargar la página index.html
+        window.onload = function() {
+            const rol = localStorage.getItem('rolUsuario') || 'usuario';
+            if (rol === 'jefe') {
+                document.getElementById('btn-menu-jefe').style.display = 'inline-block';
+                document.getElementById('nombre-usuario').innerText = "Omar Zamudio";
+                document.getElementById('puesto-usuario').innerText = "Jefe de SAP Proyectos";
+                document.getElementById('id-empleado').innerText = "C12548";
+                document.getElementById('avatar-perfil').innerText = "ML";
+                document.getElementById('avatar-perfil').style.background = "#002D62";
+            }
+        };
+
+        function cambiarPestana(tipo) {
+            const tabActual = document.getElementById('tab-actual');
+            const tabAnterior = document.getElementById('tab-anterior');
+            const tablaActual = document.getElementById('tabla-actual');
+            const tablaAnterior = document.getElementById('tabla-anterior');
+
+            if (tipo === 'actual') {
+                tabActual.style.fontWeight = "600";
+                tabActual.style.color = "#da291c";
+                tabActual.style.borderBottom = "2px solid #da291c";
+                tabAnterior.style.fontWeight = "normal";
+                tabAnterior.style.color = "#666";
+                tabAnterior.style.borderBottom = "none";
+                tablaActual.style.display = "table";
+                tablaAnterior.style.display = "none";
+            } else {
+                tabAnterior.style.fontWeight = "600";
+                tabAnterior.style.color = "#da291c";
+                tabAnterior.style.borderBottom = "2px solid #da291c";
+                tabActual.style.fontWeight = "normal";
+                tabActual.style.color = "#666";
+                tabActual.style.borderBottom = "none";
+                tablaAnterior.style.display = "table";
+                tablaActual.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
