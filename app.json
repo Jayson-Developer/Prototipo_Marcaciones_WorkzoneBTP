@@ -1,0 +1,24 @@
+{
+  "colaborador": {
+    "nombre": "CARLOS PEREZ GARCIA",
+    "puesto": "Analista de Operaciones",
+    "empleadoId": "123456"
+  },
+  "resumenMensual": {
+    "asistenciaPorcentaje": 95,
+    "asistenciaVar": "+5% vs mes anterior",
+    "diasAsistidos": 19,
+    "diasProgramados": 20,
+    "horasTrabajadasTotal": "171h 24m",
+    "metaMensual": "180h 00m",
+    "horasVar": "-4% vs mes anterior",
+    "diasLaborados": 19,
+    "diasLabVar": "1 día vs mes anterior"
+  },
+  "marcacionesMesActual": [
+    { "fecha": "10/Jul/2025 Jue", "entrada": "08:31", "salida": "17:15", "horas": "8h 44m", "estado": "A tiempo" },
+    { "fecha": "09/Jul/2025 Mié", "entrada": "08:45", "salida": "17:01", "horas": "8h 16m", "estado": "Tardanza" },
+    { "fecha": "08/Jul/2025 Mar", "entrada": "08:22", "salida": "17:36", "horas": "9h 14m", "estado": "Completo" },
+    { "fecha": "07/Jul/2025 Lun", "entrada": "08:31", "salida": "17:17", "horas": "8h 46m", "estado": "A tiempo" }
+  ]
+}
